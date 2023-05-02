@@ -1,0 +1,63 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #fafafa;
+  color: #212121;
+  line-height: 1.5;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+.wrapper {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  height: 100%;
+
+  margin-left: 250px;
+  margin-right: 250px;
+
+  background: rgba(114, 90, 193, 0.368);
+  border: 1px solid #ffffff;
+  box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+}
+
+.change-color-btn {
+  position: relative;
+  display: inline-block;
+  margin: 15px;
+  padding: 15px 30px;
+  text-align: center;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  color: #ffffff;
+  background: transparent;
+  cursor: pointer;
+  transition: ease-out 0.5s;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: inset 0 0 0 0 #ffffff;
+  height: 60px;
+}
+
+.change-color-btn:hover {
+  color: rgba(114, 90, 193, 0.63);
+  box-shadow: inset 0 -100px 0 0 #ffffff;
+}
+
+.change-color-btn:active {
+  transform: scale(0.9);
+}
