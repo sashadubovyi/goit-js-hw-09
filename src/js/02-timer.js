@@ -2,9 +2,9 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 require('flatpickr/dist/themes/dark.css');
 
+const timerEl = document.querySelector('.timer');
 const startBtn = document.querySelector('[data-start]');
-const input = document.querySelector('#datetime-picker');
-
+const inputEl = document.querySelector('#datetime-picker');
 const daysEl = document.querySelector('[data-days]');
 const hoursEl = document.querySelector('[data-hours]');
 const minutesEl = document.querySelector('[data-minutes]');
@@ -36,7 +36,7 @@ function changeTimerValue(selectedTime) {
   const timer = {
     start() {
       startBtn.disabled = true;
-      input.disabled = true;
+      inputEl.disabled = true;
 
       const startTime = selectedTime;
       timerId = setInterval(() => {
@@ -44,16 +44,16 @@ function changeTimerValue(selectedTime) {
         const deltaTime = startTime - currentTime;
         const { days, hours, minutes, seconds } = convertMs(deltaTime);
 
+        if (deltaTime <= 0) {
+          return clearInterval(timerId);
+        }
+
         daysEl.textContent = days;
         hoursEl.textContent = hours;
         minutesEl.textContent = minutes;
         secondsEl.textContent = seconds;
 
         console.log(deltaTime);
-
-        if (deltaTime <= 0) {
-          clearInterval(timerId);
-        }
       }, 1000);
     },
   };
@@ -66,19 +66,15 @@ function convertMs(ms) {
   const hour = minute * 60;
   const day = hour * 24;
 
-  // Remaining days
   const days = Math.floor(ms / day)
     .toString()
     .padStart(2, '0');
-  // Remaining hours
   const hours = Math.floor((ms % day) / hour)
     .toString()
     .padStart(2, '0');
-  // Remaining minutes
   const minutes = Math.floor(((ms % day) % hour) / minute)
     .toString()
     .padStart(2, '0');
-  // Remaining seconds
   const seconds = Math.floor((((ms % day) % hour) % minute) / second)
     .toString()
     .padStart(2, '0');

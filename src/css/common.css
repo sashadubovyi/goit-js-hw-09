@@ -61,6 +61,12 @@ img {
 .change-color-btn:active {
   transform: scale(0.9);
 }
+
+.change-color-btn:disabled {
+  color: rgba(83, 41, 221, 0.846);
+  box-shadow: inset 0 -100px 0 0 #ffffff;
+  pointer-events: none;
+}
 /* 2 hw */
 .customer-field {
   display: flex;

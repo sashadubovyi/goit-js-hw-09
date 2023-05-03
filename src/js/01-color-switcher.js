@@ -3,20 +3,23 @@ const stop = document.querySelector('[data-stop]');
 const body = document.body;
 
 let interval = null;
-let isActive = false;
+start.disabled = false;
+stop.disabled = true;
 
 start.addEventListener('click', startChangeColor);
 stop.addEventListener('click', stopChangeColor);
 
 function startChangeColor() {
-  if (isActive) return;
-  isActive = true;
+  if (start.disabled) return;
+  start.disabled = true;
+  stop.disabled = false;
   interval = setInterval(changeBackground, 1000);
 }
 
 function stopChangeColor() {
-  if (!isActive) return;
-  isActive = false;
+  if (!start.disabled) return;
+  start.disabled = false;
+  stop.disabled = true;
   clearInterval(interval);
 }
 
