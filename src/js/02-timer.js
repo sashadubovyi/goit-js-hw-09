@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+require('flatpickr/dist/themes/dark.css');
 
 const startBtn = document.querySelector('[data-start]');
 const input = document.querySelector('#datetime-picker');
