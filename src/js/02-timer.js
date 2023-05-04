@@ -2,7 +2,6 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 require('flatpickr/dist/themes/dark.css');
 
-// const timerEl = document.querySelector('.timer');
 const startBtn = document.querySelector('[data-start]');
 const inputEl = document.querySelector('#datetime-picker');
 const daysEl = document.querySelector('[data-days]');
@@ -26,9 +25,7 @@ const options = {
     }
   },
 };
-
 let selectTime;
-
 let timerId = null;
 startBtn.disabled = true;
 
