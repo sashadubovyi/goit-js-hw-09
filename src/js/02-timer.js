@@ -15,13 +15,12 @@ const options = {
   minuteIncrement: 1,
 
   onClose(selectedDates) {
-    selectTime = selectedDates;
-
     if (selectedDates[0] < options.defaultDate) {
       startBtn.disabled = true;
       alert('Please choose a date in the future');
     } else {
       startBtn.disabled = false;
+      selectTime = selectedDates[0];
     }
   },
 };
@@ -40,7 +39,6 @@ function changeTimerValue(selectedTime) {
     start() {
       startBtn.disabled = true;
       inputEl.disabled = true;
-
       const startTime = selectedTime[0].getTime();
       timerId = setInterval(() => {
         const currentTime = Date.now();
