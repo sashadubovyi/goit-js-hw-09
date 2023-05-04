@@ -39,7 +39,7 @@ function changeTimerValue(selectedTime) {
     start() {
       startBtn.disabled = true;
       inputEl.disabled = true;
-      const startTime = selectedTime[0].getTime();
+      const startTime = selectedTime.getTime();
       timerId = setInterval(() => {
         const currentTime = Date.now();
         const deltaTime = startTime - currentTime;
